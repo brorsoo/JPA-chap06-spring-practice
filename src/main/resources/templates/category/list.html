@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>category list</title>
+</head>
+<body>
+    <h1>전체 category list</h1>
+    <table>
+        <tr>
+            <th>카테고리번호</th>
+            <th>카테고리이름</th>
+            <th>참조 카테고리번호</th>
+        </tr>
+        <tr th:each="category : ${categoryList}">
+            <td th:text="${category.categoryCode}"></td>
+            <td th:text="${category.categoryName}"></td>
+            <td th:text="${category.refCategoryCode}"></td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

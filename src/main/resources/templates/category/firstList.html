@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>category list</title>
+</head>
+<body>
+    <h1>1차 분류 list</h1>
+    <form action="/category/search">
+        <h3>카테고리를 선택해주세요.</h3>
+        <label>카테고리 : </label>
+        <select name="categoryCode" id="categoryCode"></select><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        fetch('/category/first')
+            .then(res => res.json())
+            .then(data => {
+                const $categoryCode = document.getElementById('categoryCode');
+                for (let index in data) {
+                    const $option = document.createElement('option');
+                    $option.value = data[ index ].categoryCode;
+                    $option.textContent = data[ index ].categoryName;
+                    $categoryCode.append( $option );
+                }
+            });
+    </script>
+
+</body>
+</html>
